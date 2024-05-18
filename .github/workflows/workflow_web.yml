@@ -9,17 +9,20 @@ on:
       - 'CODEOWNERS'
       - 'LICENSE'
       - 'README.md'
-      - 'docs/**'
+      - '**/docs/**'
   pull_request:
     paths-ignore:
       - 'CODEOWNERS'
       - 'LICENSE'
       - 'README.md'
-      - 'docs/**'
+      - '**/docs/**'
 
 jobs:
   build_and_test:
     runs-on: ubuntu-22.04
+    defaults:
+      run:
+        working-directory: ./idlegame-web
     steps:
       - uses: actions/checkout@v4
       - name: Setup Node.js
