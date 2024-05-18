@@ -1,0 +1,83 @@
+/* You can add global styles to this file, and also import other style files */
+
+body, html, main, div, span {
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  height: 100vh;
+  width: 100vw;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+main {
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 90%;
+  width: 100%;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80%;
+  width: 80%;
+}
+
+.panel {
+  background-color: #eaeaea;
+  border-radius: 10px;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  height: calc(5% - 2px);
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid #dadada;
+  margin: 0;
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  height: calc(5% - 2px);
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  border-top: 2px solid #dadada;
+  margin: 0;
+}
+
+.dark-theme {
+  background-color: #121212;
+  color: #717171;
+
+  .header {
+    border-bottom-color: #717171;
+  }
+
+  .footer {
+    border-top-color: #717171;
+  }
+
+  .panel {
+    background-color: #191919;
+  }
+}
