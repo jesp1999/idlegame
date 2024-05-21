@@ -1,0 +1,19 @@
+services:
+  express_backend:
+    build: ./idlegame-api
+    ports:
+      - "4201:4201"
+  angular_frontend:
+    build: ./idlegame-web
+    ports:
+      - "4200:4200"
+      - "49153:49153"
+    volumes:
+      - ./idlegame-web:/usr/src/app
+  jenkins:
+    image: jenkins/jenkins:lts
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      - ./jenkins_home:/var/jenkins_home

@@ -16,3 +16,10 @@
        data-logo_alignment="left">
   </div>
 </div>
+<p>Should be shown</p>
+@for (character of (characters$ | async); track character.name) {
+  <li>{{character.name}}</li>
+} @empty {
+  <p>LOADING...</p>
+}
+

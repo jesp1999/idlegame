@@ -16,7 +16,6 @@ public class Score
     public Score(User username, string id) {
         Id = id;
         User = username;
-        Multiplier = multiplier;
         Count = 0;
     }   
 }
