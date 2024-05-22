@@ -5,7 +5,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services
     .AddGraphQLServer()
     .AddQueryType<Query>()
-    .AddType<User>();
+    .AddType<User>()
+    .AddType<Score>();
 
 builder
     .Services

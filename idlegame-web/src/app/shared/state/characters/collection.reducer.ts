@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 import { CharactersActions } from './characters.actions';
-import {Character} from "../models/characters.model";
+import {Character} from "../../models/characters.model";
 
 export const initialState: ReadonlyArray<Character> = [];
 

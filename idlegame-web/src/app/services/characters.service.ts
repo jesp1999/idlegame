@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Apollo, gql, QueryRef } from 'apollo-angular';
 import {Character} from "../shared/models/characters.model";
 import {Store} from "@ngrx/store";
-import {CharactersApiActions} from "../shared/state/characters.actions";
+import {CharactersApiActions} from "../shared/state/characters/characters.actions";
 
 export interface CharacterDetail extends Character {
   height: number;

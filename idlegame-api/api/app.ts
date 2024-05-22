@@ -17,6 +17,7 @@ const app = express()
 const schema = buildSchema(fs.readFileSync(path.resolve(__dirname, 'schema.graphql'), 'utf8'));
 const characters = parse(fs.readFileSync(path.resolve(__dirname, '../data/characters.csv'), 'utf8'), { columns: true });
 const species = parse(fs.readFileSync(path.resolve(__dirname, '../data/species.csv'), 'utf8'), { columns: true });
+const users = parse(fs.readFileSync(path.resolve(__dirname, '../data/users.csv'), 'utf8'), {columns: true});
 
 const root = {
     characters: (args) => {
@@ -30,6 +31,15 @@ const root = {
     },
     species: (args) => {
         return species.find((ch) => ch.name === args.name);
+    },
+    users: (args) => {
+        return {
+            count: users.length,
+            users: users.slice(args.offset, args.offset + args.limit)
+        }
+    },
+    user: (args) => {
+        return users.find((ch) => ch.name === args.name);
     },
 };
 
