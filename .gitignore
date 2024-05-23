@@ -215,6 +215,7 @@ fabric.properties
 
 # Compiled output
 **/dist
+**/obj/*
 /tmp
 /out-tsc
 /bazel-out
@@ -257,4 +258,3 @@ Thumbs.db
 .nx
 
 jenkins_home
-

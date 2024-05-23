@@ -4,9 +4,11 @@
 </div>
 <div class="shop">
   <div class="product">
-    <button *ngFor="let gadget of clickGadgets.keys()" (click)="buyGadget(gadget)">
+    @for(gadget of clickGadgets.keys(); track clickGadgets.keys()) {
+    <button (click)="buyGadget(gadget)">
       Buy {{clickGadgets.get(gadget)!.name}} - {{clickGadgets.get(gadget)!.cost}}&#199;
     </button>
+    }
   </div>
   <div class="shopResponse">
     <p>You've purchased {{gadgetCount}} gadgets.</p>

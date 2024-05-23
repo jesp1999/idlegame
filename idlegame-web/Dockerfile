@@ -1,9 +1,9 @@
 FROM node:latest AS build
 WORKDIR /usr/src/app
-COPY package.json package-lock.json ./
+#COPY package.json package-lock.json ./
 RUN ["npm", "install"]
 RUN ["npm", "install", "-g", "@angular/cli@latest"]
-COPY . .
+#COPY . .
 CMD ["npm", "run", "build", "--configuration=production", "--output-path=dist"]
 EXPOSE 4200
 #ENTRYPOINT ["ng"]
@@ -14,5 +14,5 @@ EXPOSE 4200
 FROM nginx:1.21
 COPY --from=build /usr/src/app/dist/idlegame-web/browser /usr/share/nginx/html
 COPY ./nginx-custom.conf /etc/nginx/conf.d/default.conf
-EXPOSE 4200
+EXPOSE 4200 49153
 CMD ["nginx", "-g", "daemon off;"]
