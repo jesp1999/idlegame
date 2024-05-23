@@ -6,8 +6,6 @@ import { provideHttpClient } from '@angular/common/http';
 import { graphqlProvider } from './graphql.provider';
 import { provideStore } from '@ngrx/store';
 
-import {CharactersReducer} from "./shared/state/characters/characters.reducer";
-import {CollectionReducer} from "./shared/state/characters/collection.reducer";
 import {UsersCollectionReducer} from "./shared/state/users/users.collection.reducer";
 import {UsersReducer} from "./shared/state/users/users.reducer";
 
@@ -15,8 +13,6 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes), provideHttpClient(), graphqlProvider,
     provideStore({
-      characters: CharactersReducer,
-      collections: CollectionReducer,
       users: UsersReducer,
       usersCollections: UsersCollectionReducer,
     })

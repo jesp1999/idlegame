@@ -1,10 +1,7 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {CommonModule} from "@angular/common";
-import {CharactersService} from "../../services/characters.service";
-import {Character} from "../../shared/models/characters.model";
 import {Observable, Subject, takeUntil, tap} from "rxjs";
 import {Store} from "@ngrx/store";
-import {selectCharacters} from "../../shared/state/characters/characters.selector";
 import {selectUsers} from "../../shared/state/users/users.selector";
 import {User} from "../../shared/models/users.model";
 import {UsersService} from "../../services/users.service";
@@ -19,23 +16,16 @@ import {UsersService} from "../../services/users.service";
 })
 export class LoginComponent implements OnInit {
   destroyed:Subject<void> = new Subject<void>();
-  characters$: Observable<readonly Character[]> = this.store.select(selectCharacters)
-    .pipe(takeUntil(this.destroyed), tap((characters) => {
-      return characters;
-    }));
   users$: Observable<readonly User[]> = this.store.select(selectUsers)
     .pipe(takeUntil(this.destroyed), tap((users) => {
       return users;
     }));
   offset = 0;
 
-  constructor(private charactersService: CharactersService,
-              private usersService: UsersService,
+  constructor(private usersService: UsersService,
               private store: Store) {}
 
   ngOnInit() {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const unusedCharacters = this.charactersService.getCharacters(this.offset);
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const unusedUser = this.usersService.getUsers(this.offset);
   }
