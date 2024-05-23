@@ -15,23 +15,9 @@ const app = express()
     .use(json());
 
 const schema = buildSchema(fs.readFileSync(path.resolve(__dirname, 'schema.graphql'), 'utf8'));
-const characters = parse(fs.readFileSync(path.resolve(__dirname, '../data/characters.csv'), 'utf8'), { columns: true });
-const species = parse(fs.readFileSync(path.resolve(__dirname, '../data/species.csv'), 'utf8'), { columns: true });
 const users = parse(fs.readFileSync(path.resolve(__dirname, '../data/users.csv'), 'utf8'), {columns: true});
 
 const root = {
-    characters: (args) => {
-        return {
-            count: characters.length,
-            characters: characters.slice(args.offset, args.offset + args.limit)
-        };
-    },
-    character: (args) => {
-        return characters.find((ch) => ch.name === args.name);
-    },
-    species: (args) => {
-        return species.find((ch) => ch.name === args.name);
-    },
     users: (args) => {
         return {
             count: users.length,
